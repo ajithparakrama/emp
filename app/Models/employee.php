@@ -30,4 +30,14 @@ class employee extends Model
     {
         return $this->hasMany(month_salary::class, 'employee_id');
     }
+
+    /**
+     * Get the user that owns the employee
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'foreign_key', 'other_key');
+    }
 }
