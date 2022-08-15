@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\DataTables\AllRolesDataTable;
 use Illuminate\Http\Request;
 
+
 class roles extends Controller
 {
     /**
@@ -51,9 +52,9 @@ class roles extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(roles $roles)
     {
-        //
+        return view('roles.show',compact('roles'));
     }
 
     /**
