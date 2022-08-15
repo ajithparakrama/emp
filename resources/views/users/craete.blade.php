@@ -69,8 +69,12 @@
                      <label  class="col-sm-4" for="role">Role</label>
                      <div class="col-sm-4">
                       <select name="role" id="role" class="select2 form-control">
-                        <option value="1">Admin</option>
-                        <option value="2">Operator</option>
+                      @foreach($roles as $item)
+                      <option value="{{ $item->id }}">{{ $item->role_name }}</option>
+
+                      @endforeach
+                        
+                        
                       </select>
                    @error('role')
                    <span class="invalid-feedback" role="alert">
