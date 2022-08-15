@@ -13,6 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
+        Schema::defaultStringLength(191);
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
@@ -22,7 +23,7 @@ return new class extends Migration
             $table->tinyInteger('role')->nullable();
           //  $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->tinyInteger('active')->default(1);
+            $table->tinyInteger('active');
             $table->rememberToken();
             $table->timestamps();
         });

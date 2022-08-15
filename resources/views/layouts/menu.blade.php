@@ -43,7 +43,7 @@
       <li class="nav-item">
         <a href="{{ route('user.susspend') }}" class="nav-link {{request()->routeIs('user.susspend')?'active':'' }}  ">
           <i class="far fa-circle nav-icon text-red"></i>
-          <p>Susspend user</p>
+          <p>Suspended user</p>
         </a>
       </li>  
       <li class="nav-item">
