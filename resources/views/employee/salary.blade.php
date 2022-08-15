@@ -56,12 +56,82 @@
                     <dd>{{ $employee->address }}</dd>
 
                   </dl>
- 
+                  
+
+                  <table class="table table-hover">
+                    <tr>
+                      <th>Month</th>
+                      <th>Basic</th>
+                      <th>Allowance</th>
+                      <th>Gross Salary</th>
+                      <th>EPF</th>
+                      <th>Net Salary</th>
+                    </tr>
+@foreach ($employee->salary as $item)
+<tr>
+  <th>{{ $item->month }}</th>
+  <th>{{ $item->basic_salary }}</th>
+  <th>{{ $item->salary_allowance }}</th>
+  <th>{{ $item->gross_pay }} </th>
+  <th>{{ $item->epf }}</th>
+  <th>{{ $item->net_salary }}</th>
+</tr>
+@endforeach
+
+                  </table>
                 </div>
 
                 <div class="col-sm-6">
                    <h4>Add Salary Details</h4>
-                    
+                     <form action="{{ route('employee.addSalary',$employee->id); }}" method="post">
+                      @csrf
+                      @method('POST')
+
+                      <div class="form-group row">
+                        <label  class="col-sm-4" for="month">Month</label>
+                        <div class="col-sm-8">
+                         <input type="month" name="month" class="form-control   @error('month') is-invalid @enderror" id="month" placeholder="Month" value="{{ old('month') }}">
+   
+                              @error('month')
+                      <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                      </span>
+                      @enderror
+                        </div>
+                      </div>
+
+
+                      <div class="form-group row">
+                        <label  class="col-sm-4" for="basic_salary">Basic Salary</label>
+                        <div class="col-sm-8">
+                         <input type="text" name="basic_salary" class="form-control   @error('basic_salary') is-invalid @enderror" id="basic_salary" placeholder="Basic Salary" value="{{ old('basic_salary') }}">
+   
+                              @error('basic_salary')
+                      <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                      </span>
+                      @enderror
+                        </div>
+                      </div>
+
+                      <div class="form-group row">
+                        <label  class="col-sm-4" for="salary_allowance">Allowance</label>
+                        <div class="col-sm-8">
+                         <input type="text" name="salary_allowance" class="form-control   @error('salary_allowance') is-invalid @enderror" id="salary_allowance" placeholder="Allowance" value="{{ old('salary_allowance') }}">
+   
+                              @error('salary_allowance')
+                      <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                      </span>
+                      @enderror
+                        </div>
+                      </div>
+
+                      
+
+
+                      <input type="submit" value="Add" class="btn btn-sm btn-success">
+                     </form>
                 </div>
               </div>
                 </div>

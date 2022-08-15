@@ -22,7 +22,7 @@ return new class extends Migration
             $table->tinyInteger('role')->nullable();
           //  $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->tinyInteger('active');
+            $table->tinyInteger('active')->default(1);
             $table->rememberToken();
             $table->timestamps();
         });

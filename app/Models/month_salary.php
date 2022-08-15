@@ -9,6 +9,8 @@ class month_salary extends Model
 {
     use HasFactory;
 
+    protected $table = 'month_salary';
+
     public $fillable = [
         'month',
 'employee_id',

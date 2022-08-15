@@ -134,4 +134,28 @@ class EmployeeController extends Controller
     public function salary(employee $employee){
         return view('employee.salary',compact('employee'));
     }
+
+    public function addSalary(request $request ,employee $employee){
+        $request->validate([
+            'basic_salary'=>'required|min:0',
+            'salary_allowance'=>'required|min:0'
+        ]);
+
+        $gross_salary = $request->salary_allowance+$request->basic_salary;
+
+        $epf = $gross_salary*0.08;
+        $net_salary = $gross_salary-$epf;
+
+        $employee->salary()->create([
+            'month'=>$request->month.'-1',
+            'basic_salary'=>$request->basic_salary,
+            'salary_allowance'=>$request->salary_allowance,
+            'gross_pay'=>$gross_salary,
+            'epf'=>$epf,
+            'net_salary'=>$net_salary,
+            'add_by'=>Auth::user()->id,
+        ]);
+
+        return redirect()->route('employee.index')->with('message','New Employee updated.');
+    }
 }

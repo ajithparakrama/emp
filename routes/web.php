@@ -23,7 +23,7 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('employee/salary/{employee}', [EmployeeController::class,'salary'])->name('employee.salary');
-
+Route::post('employee/addsalary/{employee}',[EmployeeController::class,'addSalary'])->name('employee.addSalary');
 Route::resource('employee', EmployeeController::class);
 Route::get('user/inactive/{user}',[userController::class,'inactive'])->name('user.inactive');
 Route::get('user/active/{user}',[userController::class,'active'])->name('user.active');

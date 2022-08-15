@@ -19,4 +19,15 @@ class employee extends Model
 'user_id',
 'epf_number'
     ];
+
+
+    /**
+     * Get all of the comments for the employee
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function salary()
+    {
+        return $this->hasMany(month_salary::class, 'employee_id');
+    }
 }

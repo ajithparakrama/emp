@@ -54,8 +54,8 @@ return [
 
     'url' => env('APP_URL', 'http://localhost'),
 
-    'asset_url' => env('ASSET_URL', 'http://localhost/my/emp/beta/public'),
-    'mix_url' => env('MIX_URL', 'http://localhost/my/emp/beta/public'),
+    'asset_url' => env('ASSET_URL', 'http://localhost/my/emp/public'),
+    'mix_url' => env('MIX_URL', 'http://localhost/my/emp/public'),
 
     /*
     |--------------------------------------------------------------------------
