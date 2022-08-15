@@ -54,3 +54,35 @@
       </li> 
     </ul>
   </li>
+
+
+  <li class="nav-item   has-treeview  {{request()->routeIs('user*')?'menu-open':'' }}">
+    <a href="#" class="nav-link">
+      <i class="nav-icon nav-icon fas  fa-user text-red"></i>
+      <p> 
+        Roles
+        <i class="right fas fa-angle-left text-red"></i>
+      </p>
+    </a>
+
+    <ul class="nav nav-treeview">
+      <li class="nav-item">
+        <a href="{{ route('roles.index') }}" class="nav-link {{request()->routeIs('roles.index')?'active':'' }}  ">
+          <i class="far fa-circle nav-icon text-red"></i>
+          <p>All Roles</p>
+        </a>
+      </li>  
+      <li class="nav-item">
+        <a href="{{ route('roles.susspend') }}" class="nav-link {{request()->routeIs('roles.susspend')?'active':'' }}  ">
+          <i class="far fa-circle nav-icon text-red"></i>
+          <p>Suspended Roles</p>
+        </a>
+      </li>  
+      <li class="nav-item">
+        <a href="{{ route('roles.create') }}" class="nav-link   {{request()->routeIs('roles.craete')?'active':'' }} ">
+          <i class="far fa-circle nav-icon text-red"></i>
+          <p>New Role</p>
+        </a>
+      </li> 
+    </ul>
+  </li>

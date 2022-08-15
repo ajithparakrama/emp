@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\MonthSalaryController;
+use App\Http\Controllers\roles;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,11 @@ Route::get('user/inactive/{user}',[userController::class,'inactive'])->name('use
 Route::get('user/active/{user}',[userController::class,'active'])->name('user.active');
 Route::get('user/susspend/',[userController::class,'susspend'])->name('user.susspend');
 Route::resource('user',userController::class);
+
+Route::get('roles/inactive/{roles}',[roles::class,'inactive'])->name('roles.inactive');
+Route::get('roles/active/{roles}',[roles::class,'active'])->name('roles.active');
+Route::get('roles/susspend/',[roles::class,'susspend'])->name('roles.susspend');
+Route::resource('roles', roles::class);
 
 
 //Route::resource('month-salary', MonthSalaryController::class);
