@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\roles;
 use Illuminate\Http\Request;
 use App\DataTables\userDataTable;
 use Illuminate\Support\Facades\Hash;
@@ -37,7 +38,8 @@ class userController extends Controller
      */
     public function create()
     {
-        return view('users.craete');
+      $roles =  roles::where('active','=','1')->get();
+        return view('users.craete',compact('roles'));
     }
 
     /**
@@ -57,7 +59,7 @@ class userController extends Controller
             'phone' => $request->phone,
             'name' => $request->name,
             'address' => $request->address,
-        //    'name' => $request->name,
+            'role' => $request->role,
             'username' => $request->username,
             'password' => Hash::make($request->password),
         ]);
@@ -84,7 +86,8 @@ class userController extends Controller
      */
     public function edit(User $user)
     {
-        return view('users.edit',compact('user'));
+        $roles =  roles::where('active','=','1')->get();
+        return view('users.edit',compact('user','roles'));
     }
 
     /**
