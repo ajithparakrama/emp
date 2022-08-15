@@ -28,7 +28,7 @@ class userDataTable extends DataTable
             ->addColumn('action', function($item){
                 $btn = '<a class="btn btn-sm btn-primary" href="'.route('user.edit',$item->id).'" >Edit <i class="fa fa-pen"></i></a>';
                 $btn .= '<a class="btn btn-sm btn-info" href="'.route('user.show',$item->id).'">View <i class="fa fa-eye"></i></a>';
-                $btn .= '<a class="btn btn-sm btn-danger" href="'.route('user.inactive',$item->id).'">View <i class="fa fa-trash"></i></a>';
+                $btn .= '<a class="btn btn-sm btn-danger" href="'.route('user.inactive',$item->id).'">Deactivate <i class="fa fa-trash"></i></a>';
                 return $btn;
             });
     }
